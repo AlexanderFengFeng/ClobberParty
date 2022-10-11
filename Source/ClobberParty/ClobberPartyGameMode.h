@@ -6,7 +6,7 @@
 #include "GameFramework/GameModeBase.h"
 #include "ClobberPartyGameMode.generated.h"
 
-UCLASS(minimalapi)
+UCLASS()
 class AClobberPartyGameMode : public AGameModeBase
 {
 	GENERATED_BODY()
