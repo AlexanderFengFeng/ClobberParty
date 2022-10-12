@@ -26,6 +26,17 @@
 				"Mac",
 				"Linux"
 			]
+		},
+		{
+			"Name": "WinDualShock",
+			"Enabled": true,
+			"SupportedTargetPlatforms": [
+				"Win64"
+			]
+		},
+		{
+			"Name": "RawInput",
+			"Enabled": true
 		}
 	]
 }
