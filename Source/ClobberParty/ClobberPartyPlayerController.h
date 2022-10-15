@@ -6,6 +6,7 @@
 #include "GameFramework/PlayerController.h"
 #include "ClobberPartyPlayerController.generated.h"
 
+class ALevelCamera;
 
 UCLASS()
 class AClobberPartyPlayerController : public APlayerController
@@ -15,8 +16,14 @@ class AClobberPartyPlayerController : public APlayerController
 public:
 	AClobberPartyPlayerController();
 
+
 protected:
+	virtual void BeginPlay() override;
 	virtual void PlayerTick(float DeltaTime) override;
+
+private:
+	ALevelCamera* LevelCamera;
+	void AssignLevelCamera();
 };
 
 
