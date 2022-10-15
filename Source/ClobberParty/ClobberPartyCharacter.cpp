@@ -9,7 +9,7 @@
 AClobberPartyCharacter::AClobberPartyCharacter()
 {
 	// Set size for player capsule
-	GetCapsuleComponent()->InitCapsuleSize(28.f, 45.0f);
+	GetCapsuleComponent()->InitCapsuleSize(50.f, 95.f);
 
 	// Don't rotate character to camera direction
 	bUseControllerRotationPitch = false;
