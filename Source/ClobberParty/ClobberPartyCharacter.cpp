@@ -37,6 +37,12 @@ AClobberPartyCharacter::AClobberPartyCharacter()
 	TopDownCameraComponent->SetupAttachment(CameraBoom, USpringArmComponent::SocketName);
 	TopDownCameraComponent->bUsePawnControlRotation = false; // Camera does not rotate relative to arm
 
+	// Set movement physics.
+	UCharacterMovementComponent* MovementComponent = GetCharacterMovement();
+	MovementComponent->GravityScale = GravityScale;
+	MovementComponent->JumpZVelocity = JumpZVelocity;
+	MovementComponent->AirControl = AirControl;
+
 	// Activate ticking in order to update the cursor every frame.
 	PrimaryActorTick.bCanEverTick = true;
 	PrimaryActorTick.bStartWithTickEnabled = true;

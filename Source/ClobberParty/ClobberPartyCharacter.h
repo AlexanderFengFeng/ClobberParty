@@ -36,5 +36,10 @@ private:
 	// Movement.
 	void MoveForward(float AxisValue);
 	void MoveRight(float AxisValue);
+
+	// Variables.
+	float GravityScale = 2.0f;
+	float JumpZVelocity = 700.0f;
+	float AirControl = 0.25f;
 };
 
