@@ -3,6 +3,7 @@
 #include "ClobberPartyCharacter.h"
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
+#include "Item.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/SpringArmComponent.h"
 
@@ -65,6 +66,7 @@ void AClobberPartyCharacter::SetupPlayerInputComponent(UInputComponent* PlayerIn
 	PlayerInputComponent->BindAxis(TEXT("MoveForward"), this, &AClobberPartyCharacter::MoveForward);
 	PlayerInputComponent->BindAxis(TEXT("MoveRight"), this, &AClobberPartyCharacter::MoveRight);
 	PlayerInputComponent->BindAction(TEXT("Jump"), EInputEvent::IE_Pressed, this, &ACharacter::Jump);
+	PlayerInputComponent->BindAction(TEXT("Interact"), EInputEvent::IE_Pressed, this, &AClobberPartyCharacter::Interact);
 }
 
 void AClobberPartyCharacter::MoveForward(float AxisValue)
@@ -75,4 +77,26 @@ void AClobberPartyCharacter::MoveForward(float AxisValue)
 void AClobberPartyCharacter::MoveRight(float AxisValue)
 {
 	AddMovementInput(FVector::UnitY() * AxisValue);
+}
+
+void AClobberPartyCharacter::Interact()
+{
+	TArray<AActor*> Actors;
+	GetOverlappingActors(Actors, AItem::StaticClass());
+	if (!Actors.IsEmpty())
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Overlapping, %s"), *Actors[0]->GetName());
+	}
+}
+
+void AClobberPartyCharacter::PickUp(AItem Item)
+{
+    if (Item.bGoesInRightHand)
+    {
+        // Detach from right hand.
+		// Place current item in right hand.
+    } else
+    {
+        // Do same with left hand.
+    }
 }

@@ -22,13 +22,15 @@ protected:
 	UStaticMeshComponent* Mesh;
 	UPROPERTY(EditAnywhere)
 	class USphereComponent* PickupCollider;
-
-	bool bGoesInRightHand;
-	bool bOccupiesBothHandsWhenUsed;
 	FTransform DefaultRelativeMeshTransform;  // Since we need to set rel transform to 0 when picked up.
 
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+	UPROPERTY(VisibleAnywhere)
+	bool bGoesInRightHand;
+	UPROPERTY(VisibleAnywhere)
+	bool bOccupiesBothHandsWhenUsed;
 
 };

@@ -37,6 +37,10 @@ private:
 	void MoveForward(float AxisValue);
 	void MoveRight(float AxisValue);
 
+	// Gameplay.
+	void Interact();
+	void PickUp(class AItem Item);
+
 	// Variables.
 	float GravityScale = 2.0f;
 	float JumpZVelocity = 700.0f;
